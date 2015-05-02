@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="css/my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="js/jquery.min.js">
+        </script>
+        <script src="js/jquery.mobile-1.1.1.min.js">
+        </script>
+        <script src="js/my.js">
+        </script>
+		<script src="js/jquery.jplayer.min.js">
+        </script>
+		<script src="js/jquery.jplayer.fade.js">
+		</script>
+		<script>
+		$(document).ready(function() {
+  			$("#jpId").jPlayer( {
+    			ready: function () {
+      				$(this).jPlayer("setMedia", {
+        				mp3: "everlong.mp3" // Defines the mp3 url
+      				});
+    			}
+  			});
+			$("#play").click( function() {
+ 				$("#jpId").jPlayer("play"); // Begins playing media.
+			});
+			$("#fadeOut").click( function() {
+ 				$("#jpId").jPlayerFade().to(5000,0.8,0, function() {
+					$("#jpId").jPlayer("stop"); // Stops playing media.
+					}
+				);
+ 				function function1(param, callback) {
+  					callback();
+				} 
+			});
+			$("#hiddenStop").click( function() {
+ 				$("#jpId").jPlayer("stop"); // Stops playing media.
+				$("#jpId").jPlayerFade().to(100,0,0.8);// Fades audio up quickly.
+			});
+			$("#stop").click( function() {
+ 				$("#jpId").jPlayer("stop"); // Stops playing media.
+				$("#jpId").jPlayerFade().to(100,0,0.8);// Fades audio up quickly.
+			});
+			/*$(".nav").click( function() {
+				$("#jpId").jPlayerFade().to(5000,0.8,0, function() {
+					$("#jpId").jPlayer("stop"); // Stops playing media.
+					}
+				);
+ 				function function1(param, callback) {
+  					callback();
+				} 
+			});*/
+			$("#one").click( function() {
+				$("#jpId").jPlayer("setMedia", {
+        			mp3: "music/everlong.mp3" // Defines the mp3 url
+      			});
+				$("#headerText").text("Processional");
+				$("#hiddenStop").trigger('click');
+			});
+			$("#two").click( function() {
+				$("#jpId").jPlayer("setMedia", {
+        			mp3: "music/everlasting_light.mp3" // Defines the mp3 url
+      			});
+				$("#headerText").text("Sara & Brian");
+				$("#hiddenStop").trigger('click');
+			});
+			$("#three").click( function() {
+				$("#jpId").jPlayer("setMedia", {
+        			mp3: "music/hallelujah_i_love_her_so.mp3" // Defines the mp3 url
+      			});
+				$("#headerText").text("Recessional");
+				$("#hiddenStop").trigger('click');
+			});
+		});
+		</script>
+    </head>
+    <body>
+	<div id="jpId"></div>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div id="header" data-id="fixedheader" data-theme="a" data-role="header">
+			<h2>
+				Ceremony Music App
+			</h2>
+                <div data-id="fixednav" data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a id="one" href="#" data-theme="" data-icon="" class="ui-btn-active">First</a>
+                        </li>
+                        <li>
+                            <a id="two" href="#" data-theme="" data-icon="">Second</a>
+                        </li>
+                        <li>
+                            <a id="three" href="#" data-theme="" data-icon="">Third</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+				<h2 id="headerText">
+                    Processional
+                </h2>
+                <a id="play" data-role="button" href="#page1" data-icon="arrow-r" data-iconpos="right">
+                    Play
+                </a>
+                <a id="fadeOut" data-role="button" href="#page1" data-icon="arrow-d" data-iconpos="right">
+                    Fade Out
+                </a>
+				<a id="stop" data-role="button" href="#page1" data-icon="delete" data-iconpos="right">
+                    Stop
+                </a>
+                <a id="hiddenStop" style="display:none" data-role="button" href="#page1" data-icon="delete" data-iconpos="right">
+                    Stop
+                </a>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
